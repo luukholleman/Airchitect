@@ -32,7 +32,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 	public class SimpleSmoothModifier : MonoModifier {
 		
 	#if UNITY_EDITOR
-		[UnityEditor.MenuItem ("CONTEXT/Seeker/Add Simple Smooth Modifier")]
+		[UnityEditor.MenuItem ("CONTEXT/Seeker/Enqueue Simple Smooth Modifier")]
 		public static void AddComp (UnityEditor.MenuCommand command) {
 			(command.context as Component).gameObject.AddComponent (typeof(SimpleSmoothModifier));
 		}

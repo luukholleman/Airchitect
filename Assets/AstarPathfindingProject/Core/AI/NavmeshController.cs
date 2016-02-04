@@ -121,7 +121,7 @@ namespace Assets.AstarPathfindingProject.Core.AI
 		// Init
 		bestPos = startPos;
 		stack.Push(startNode);
-		closed.Add(startNode); // Self ref, start maker.
+		closed.Enqueue(startNode); // Self ref, start maker.
 	
 		INavmesh graph = AstarData.GetGraph (startNode) as INavmesh;
 		if (graph == null) {
@@ -198,7 +198,7 @@ namespace Assets.AstarPathfindingProject.Core.AI
 					// Skip already visited.
 					if (closed.Contains(conn)) continue;
 					// Store to closed with parent for trace back.
-					closed.Add(conn);
+					closed.Enqueue(conn);
 #if ASTARDEBUG
 					Debug.DrawLine ((Vector3)cur.position,(Vector3)conn.position,Color.black);
 					Debug.DrawLine ((Vector3)graph.vertices[sp]+Vector3.up*0.1F,(Vector3)graph.vertices[sq]+Vector3.up*0.1F,Color.blue);

@@ -358,7 +358,7 @@ namespace Assets.AstarPathfindingProject.Core.RVO {
 			OnDestroy ();
 		}
 		
-		/** Add a previously removed agent to the simulation.
+		/** Enqueue a previously removed agent to the simulation.
 		  * An agent can only be in one simulation at a time, any attempt to add an agent to two simulations
 		  * or multiple times to the same simulation will result in an exception being thrown.
 		  * 
@@ -384,7 +384,7 @@ namespace Assets.AstarPathfindingProject.Core.RVO {
 			return agent;
 		}
 		
-		/** Add an agent at the specified position.
+		/** Enqueue an agent at the specified position.
 		 * You can use the returned interface to read several parameters such as position and velocity
 		 * and set for example radius and desired velocity.
 		 * 
@@ -628,7 +628,7 @@ namespace Assets.AstarPathfindingProject.Core.RVO {
 		}
 		
 		/** Rebuilds the obstacle tree at next simulation frame.
-		 * Add and remove obstacle functions call this automatically.
+		 * Enqueue and remove obstacle functions call this automatically.
 		 */
 		public void UpdateObstacles () {
 			//Update obstacles at next frame 

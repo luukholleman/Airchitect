@@ -19,7 +19,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 			get { return (addPoints ? ModifierData.None : ModifierData.StrictVectorPath) | ModifierData.VectorPath; }
 		}
 		
-		/** Add points to the path instead of replacing. */
+		/** Enqueue points to the path instead of replacing. */
 		public bool addPoints;
 		public Exactness exactStartPoint = Exactness.ClosestOnNode;
 		public Exactness exactEndPoint = Exactness.ClosestOnNode;

@@ -24,6 +24,7 @@ namespace Assets.Scripts.Cursors
             {
                 Resources.Load<GameObject>("Prefabs/Floors/Floor"),
                 Resources.Load<GameObject>("Prefabs/Furniture/ComputerDesk"),
+                Resources.Load<GameObject>("Prefabs/Walls/Wall"),
             };
         }
 

@@ -27,9 +27,9 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 						
 						if (voxelArea.dist[i] >= level && srcReg[i] == 0 && voxelArea.areaTypes[i] != UnwalkableArea) {
 							
-							st2.Add (x);
-							st2.Add (z);
-							st2.Add (i);
+							st2.Enqueue (x);
+							st2.Enqueue (z);
+							st2.Enqueue (i);
 							//Debug.DrawRay (ConvertPosition(x,z,i),Vector3.up*0.5F,Color.cyan);
 						}
 					}
@@ -644,7 +644,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 							}
 						}
 						if (!anyBelow) {
-							basins.Add (new Int3(x,i,z));
+							basins.Enqueue (new Int3(x,i,z));
 							level = System.Math.Max (level, voxelArea.dist[i]);
 						}
 					}
@@ -673,7 +673,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 						if (srcReg[basins[q].y] == 0 && voxelArea.dist[basins[q].y] >= level) {
 							
 							srcReg[basins[q].y] = 1;
-							st1.Add (basins[q]);
+							st1.Enqueue (basins[q]);
 
 							// Some debug code
 							//c++;
@@ -727,14 +727,14 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 								srcReg[ni] = r;
 								//Debug.DrawRay (ConvertPosition(x,z,i),Vector3.up,Mathfx.IntToColor((int)level,0.6f));
 								
-								st1.Add (new Int3(nx,ni,nz));
+								st1.Enqueue (new Int3(nx,ni,nz));
 							}
 						}
 					}
 					
 					//Still on the edge
 					if (anyAbove) {
-						st2.Add (st1[j]);
+						st2.Enqueue (st1[j]);
 					}
 					
 					if (j == ocount-1) {
@@ -749,7 +749,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 								if (srcReg[basins[q].y] == 0 && voxelArea.dist[basins[q].y] >= level) {
 									
 									srcReg[basins[q].y] = 1;
-									st1.Add (basins[q]);
+									st1.Enqueue (basins[q]);
 
 									// Debug code
 									//c++;
@@ -771,7 +771,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 				
 				for (int i=0;i<basins.Count;i++) {
 					if (srcReg[basins[i].y] == 1) {
-						st2.Add (basins[i]);
+						st2.Enqueue (basins[i]);
 						FloodOnes (st2, srcReg, level, regionId); regionId++;
 						st2.Clear();
 					}

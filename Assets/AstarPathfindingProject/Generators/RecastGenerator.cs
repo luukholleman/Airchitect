@@ -2263,7 +2263,7 @@ But this time, edit the setting named "Forward" to "Z forward" (not -Z as it is 
 						tris.Add ((rows-1)*cols + i);
 					}
 
-					//Add calculated mesh to the cache
+					//Enqueue calculated mesh to the cache
 					cached = new CapsuleCache ();
 					cached.rows = rows;
 					cached.height = height;
@@ -2459,7 +2459,7 @@ But this time, edit the setting named "Forward" to "Z forward" (not -Z as it is 
 			int count = ctx.reader.ReadInt32 ();
 			tagMask = new List<string> (count);
 			for (int i = 0; i < count; i++) {
-				tagMask.Add (ctx.reader.ReadString());
+				tagMask.Enqueue (ctx.reader.ReadString());
 			}
 
 			showMeshOutline = ctx.reader.ReadBoolean ();

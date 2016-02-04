@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Assets.AstarPathfindingProject.RVO {
 	/** Adds a navmesh as RVO obstacles.
-	 * Add this to a scene in which has a navmesh based graph, when scanning (or loading from cache) the graph
+	 * Enqueue this to a scene in which has a navmesh based graph, when scanning (or loading from cache) the graph
 	 * it will be added as RVO obstacles to the RVOSimulator (which must exist in the scene).
 	 * 
 	 * \warning You should only have a single instance of this script in the scene, otherwise it will add duplicate
@@ -131,7 +131,7 @@ namespace Assets.AstarPathfindingProject.RVO {
 							float height = System.Math.Abs(v1.y-v2.y);
 							height = System.Math.Max (height,5);
 							
-							//Add the edge as a line obstacle
+							//Enqueue the edge as a line obstacle
 							obstacles.Add (sim.AddObstacle (v1, v2, wallHeight));
 						}
 					}

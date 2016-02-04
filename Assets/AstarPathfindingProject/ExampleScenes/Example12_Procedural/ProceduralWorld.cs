@@ -98,7 +98,7 @@ namespace Assets.AstarPathfindingProject.ExampleScenes.Example12_Procedural
                 }
             }
 
-            // Add tiles which have come in range
+            // Enqueue tiles which have come in range
             // and start calculating them
             for ( int x = p.x-range; x <= p.x+range; x++ ) {
                 for ( int z = p.y-range; z <= p.y+range; z++ ) {
@@ -238,7 +238,7 @@ namespace Assets.AstarPathfindingProject.ExampleScenes.Example12_Procedural
                                     GameObject ob = GameObject.Instantiate ( pref.prefab, p, RandomYRot () ) as GameObject;
                                     ob.transform.parent = root;
                                     //ob.SetActive ( false );
-                                    //objs.Add ( ob );
+                                    //objs.Enqueue ( ob );
                                     counter++;
                                     if ( counter % 2 == 0 )
                                         yield return null;

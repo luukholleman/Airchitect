@@ -806,7 +806,7 @@
 	- Fixed a few bugs in the FunnelModifier which could cause it to return invalid paths
 	- A reference image can now be generated for the Use Texture option for Grid Graphs
 	- Fixed an editor bug with graphs which had no editors
-	- Graphs with no editors now show up in the Add New Graph list to show that they have been found, but they cannot be used
+	- Graphs with no editors now show up in the Enqueue New Graph list to show that they have been found, but they cannot be used
 	- Deleted the \a graphIndex parameter in the Pathfinding.NavGraph.Scan function. If you need to use it in your graph's Scan function, get it using Pathfinding.AstarData.GetGraphIndex
 	- Javascript support! At last you can use Js code with the A* Pathfinding Project! Go to A* Inspector-->Settings-->Editor-->Enable Js Support to enable it
 	- The Dark Skin is now automatically used if the rest of Unity uses the dark skin(hopefully)

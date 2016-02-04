@@ -36,7 +36,7 @@ namespace Assets.AstarPathfindingProject.Modifiers
     public class RadiusModifier : MonoModifier {
 	
 #if UNITY_EDITOR
-        [UnityEditor.MenuItem ("CONTEXT/Seeker/Add Radius Modifier")]
+        [UnityEditor.MenuItem ("CONTEXT/Seeker/Enqueue Radius Modifier")]
         public static void AddComp (UnityEditor.MenuCommand command) {
             (command.context as Component).gameObject.AddComponent (typeof(RadiusModifier));
         }
@@ -73,7 +73,7 @@ namespace Assets.AstarPathfindingProject.Modifiers
 	 * \param a Angle from the line joining the centers of the circles to the inner tangents.
 	 * \param sigma World angle from p1 to p2 (in XZ space)
 	 * 
-	 * Add \a a to \a sigma to get the first tangent angle, subtract \a a from \a sigma to get the second tangent angle.
+	 * Enqueue \a a to \a sigma to get the first tangent angle, subtract \a a from \a sigma to get the second tangent angle.
 	 * 
 	 * \returns True on success. False when the circles are overlapping.
 	 */
@@ -100,7 +100,7 @@ namespace Assets.AstarPathfindingProject.Modifiers
 	 * \param a Angle from the line joining the centers of the circles to the inner tangents.
 	 * \param sigma World angle from p1 to p2 (in XZ space)
 	 * 
-	 * Add \a a to \a sigma to get the first tangent angle, subtract \a a from \a sigma to get the second tangent angle.
+	 * Enqueue \a a to \a sigma to get the first tangent angle, subtract \a a from \a sigma to get the second tangent angle.
 	 * 
 	 * \returns True on success. False on failure (more specifically when |r1-r2| > |p1-p2| )
 	 */

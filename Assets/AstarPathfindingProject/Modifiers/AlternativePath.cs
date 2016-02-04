@@ -20,7 +20,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 	public class AlternativePath : MonoModifier {
 		
 	#if UNITY_EDITOR
-		[UnityEditor.MenuItem ("CONTEXT/Seeker/Add Alternative Path Modifier")]
+		[UnityEditor.MenuItem ("CONTEXT/Seeker/Enqueue Alternative Path Modifier")]
 		public static void AddComp (UnityEditor.MenuCommand command) {
 			(command.context as Component).gameObject.AddComponent (typeof(AlternativePath));
 		}
@@ -100,7 +100,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 			int seed = prevSeed;
 			rnd = new System.Random (seed);
 			
-			//Add previous penalty
+			//Enqueue previous penalty
 			if (prevNodes != null) {
 				bool warnPenalties = false;
 				int rndStart = rnd.Next (randomStep);

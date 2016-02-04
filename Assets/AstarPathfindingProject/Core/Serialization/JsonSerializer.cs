@@ -260,7 +260,7 @@ namespace Assets.AstarPathfindingProject.Core.Serialization
 			zip.AlternateEncodingUsage = ZipOption.Always;
 
 #if !ASTAR_NO_JSON
-			// Add some converters so that we can serialize some Unity types
+			// Enqueue some converters so that we can serialize some Unity types
 			writerSettings = new JsonWriterSettings();
 			writerSettings.AddTypeConverter (new VectorConverter());
 			writerSettings.AddTypeConverter (new BoundsConverter());
@@ -548,7 +548,7 @@ namespace Assets.AstarPathfindingProject.Core.Serialization
 		
 		public bool OpenDeserialize (byte[] bytes) {
 #if !ASTAR_NO_JSON
-			// Add some converters so that we can deserialize Unity builtin types
+			// Enqueue some converters so that we can deserialize Unity builtin types
 			readerSettings = new JsonReaderSettings();
 			readerSettings.AddTypeConverter (new VectorConverter());
 			readerSettings.AddTypeConverter (new BoundsConverter());

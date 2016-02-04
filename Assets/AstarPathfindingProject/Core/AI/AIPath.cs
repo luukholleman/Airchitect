@@ -255,6 +255,7 @@ namespace Assets.AstarPathfindingProject.Core.AI
         }
 
         public virtual void OnTargetReached () {
+            SendMessage("TargetReached");
             //End of path has been reached
             //If you want custom logic for when the AI has reached it's destination
             //add it here

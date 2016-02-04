@@ -144,7 +144,7 @@ namespace Assets.AstarPathfindingProject.Core
 	 *
 	 * \note Only relevant in the editor
 	 *
-	 * \todo Add a showOnlyLastPath flag to indicate whether to draw every node or only the ones visited by the latest path.
+	 * \todo Enqueue a showOnlyLastPath flag to indicate whether to draw every node or only the ones visited by the latest path.
 	 */
         public bool	showSearchTree = false;
 
@@ -488,7 +488,7 @@ namespace Assets.AstarPathfindingProject.Core
 
         #region MemoryStructures
 
-        /** Stack containing all waiting graph update queries. Add to this stack by using \link UpdateGraphs \endlink
+        /** Stack containing all waiting graph update queries. Enqueue to this stack by using \link UpdateGraphs \endlink
 	 * \see UpdateGraphs
 	 */
         Queue<GraphUpdateObject> graphUpdateQueue;
@@ -953,7 +953,7 @@ namespace Assets.AstarPathfindingProject.Core
             }
         }
 
-        /** Add a work item to be processed when pathfinding is paused.
+        /** Enqueue a work item to be processed when pathfinding is paused.
 	 *
 	 * \see ProcessWorkItems
 	 */
@@ -1606,7 +1606,7 @@ namespace Assets.AstarPathfindingProject.Core
                 "Trace",			//3
                 "Open",				//4
                 "UpdateAllG",		//5
-                "Add",				//6
+                "Enqueue",				//6
                 "Remove",			//7
                 "PreProcessing",	//8
                 "Callback",			//9
@@ -2534,8 +2534,8 @@ AstarPath.RegisterSafeUpdate (delegate () {
 
 #if ProfileAstar
 					System.Threading.Interlocked.Increment (ref PathsCompleted);
-					System.Threading.Interlocked.Add (ref TotalSearchedNodes, p.searchedNodes);
-					System.Threading.Interlocked.Add (ref TotalSearchTime, totalTicks);
+					System.Threading.Interlocked.Enqueue (ref TotalSearchedNodes, p.searchedNodes);
+					System.Threading.Interlocked.Enqueue (ref TotalSearchTime, totalTicks);
 #endif
                     }
 
@@ -2739,7 +2739,7 @@ AstarPath.RegisterSafeUpdate (delegate () {
 
 #if ProfileAstar
 				System.Threading.Interlocked.Increment (ref PathsCompleted);
-				System.Threading.Interlocked.Add (ref TotalSearchedNodes, p.searchedNodes);
+				System.Threading.Interlocked.Enqueue (ref TotalSearchedNodes, p.searchedNodes);
 #endif
                 }
 

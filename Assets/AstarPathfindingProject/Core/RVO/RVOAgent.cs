@@ -213,7 +213,7 @@ namespace Assets.AstarPathfindingProject.Core.RVO {
 			for ( int i = 0; i < simulator.agents.Count; i++ ) {
 				float dist = (simulator.agents[i].position - position).sqrMagnitude;
 				if ( dist <= sqrDist ) {
-					neighbours.Add ( simulator.agents[i] );
+					neighbours.Enqueue ( simulator.agents[i] );
 				}
 			}
 		}*/

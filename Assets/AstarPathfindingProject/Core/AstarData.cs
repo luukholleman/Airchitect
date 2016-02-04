@@ -560,7 +560,7 @@ namespace Assets.AstarPathfindingProject.Core {
 					"'Optimizations' tab in the A* Inspector");
 			}
 			
-			//Add a new entry to the list
+			//Enqueue a new entry to the list
 			var ls = new List<NavGraph> (graphs);
 			ls.Add (graph);
 			graphs = ls.ToArray ();

@@ -410,7 +410,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 		
 		public void SimplifyContour(List<int> verts, List<int> simplified, float maxError, int maxEdgeLenght, int buildFlags) {
 			
-			// Add initial points.
+			// Enqueue initial points.
 			bool hasConnections = false;
 			for (int i = 0; i < verts.Count; i += 4) {
 				
@@ -424,7 +424,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 			if (hasConnections) {
 				
 				// The contour has some portals to other regions.
-				// Add a new point to every location where the region changes.
+				// Enqueue a new point to every location where the region changes.
 				for (int i = 0, ni = verts.Count/4; i < ni; i++) {
 					
 					int ii = (i+1) % ni;
@@ -488,7 +488,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 				simplified.Add(uri);
 			}
 			
-			// Add points until all raw points are within
+			// Enqueue points until all raw points are within
 			// error tolerance to the simplified shape.
 			int pn = verts.Count/4;
 			
@@ -555,7 +555,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 				// add new point, else continue to next segment.
 				if (maxi != -1 && maxd > maxError)
 				{
-					// Add space for the new point.
+					// Enqueue space for the new point.
 					//simplified.resize(simplified.size()+4);
 					simplified.Add(0);
 					simplified.Add(0);
@@ -571,7 +571,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 						simplified[j*4+2] = simplified[(j-1)*4+2];
 						simplified[j*4+3] = simplified[(j-1)*4+3];
 					}
-					// Add the point.
+					// Enqueue the point.
 					simplified[(i+1)*4+0] = verts[maxi*4+0];
 					simplified[(i+1)*4+1] = verts[maxi*4+1];
 					simplified[(i+1)*4+2] = verts[maxi*4+2];
@@ -649,7 +649,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 					// add new point, else continue to next segment.
 					if (maxi != -1)
 					{
-						// Add space for the new point.
+						// Enqueue space for the new point.
 						//simplified.resize(simplified.size()+4);
 						simplified.AddRange (new int[4]);
 						
@@ -661,7 +661,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 							simplified[j*4+2] = simplified[(j-1)*4+2];
 							simplified[j*4+3] = simplified[(j-1)*4+3];
 						}
-						// Add the point.
+						// Enqueue the point.
 						simplified[(i+1)*4+0] = verts[maxi*4+0];
 						simplified[(i+1)*4+1] = verts[maxi*4+1];
 						simplified[(i+1)*4+2] = verts[maxi*4+2];

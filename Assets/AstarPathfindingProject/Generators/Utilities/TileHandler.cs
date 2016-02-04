@@ -574,7 +574,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 				//watch3.Start();
 				
 				
-				//Add current triangle as subject polygon for cutting
+				//Enqueue current triangle as subject polygon for cutting
 				poly.Clear();
 				if ( addIndex == -1 ) {
 					// geometry from a tile mesh is assumed to be completely inside the tile
@@ -629,7 +629,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 						clipper.Clear();
 						clipper.AddPolygon(poly, PolyType.ptSubject);
 						
-						//Add all holes (cuts) as clip polygons
+						//Enqueue all holes (cuts) as clip polygons
 						for (int i=0;i<tmpIntersectingCuts.Count;i++) {
 							clipper.AddPolygon (cutVertices[tmpIntersectingCuts[i]], PolyType.ptClip);
 						}
@@ -648,7 +648,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 						clipper.Clear();
 						clipper.AddPolygon(poly, PolyType.ptSubject);
 						
-						//Add all holes (cuts) as clip polygons
+						//Enqueue all holes (cuts) as clip polygons
 						for (int i=0;i<tmpIntersectingCuts.Count;i++) {
 							if (cutIsDual[tmpIntersectingCuts[i]]) {
 								clipper.AddPolygon (cutVertices[tmpIntersectingCuts[i]], PolyType.ptClip);
@@ -677,7 +677,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 						clipper.Clear();
 						clipper.AddPolygon(poly, PolyType.ptSubject);
 						
-						//Add all holes (cuts) as clip polygons
+						//Enqueue all holes (cuts) as clip polygons
 						//for (int i=0;i<tmpIntersectingCuts.Count;i++) {
 						//	clipper.AddPolygon (cutVertices[tmpIntersectingCuts[i]], PolyType.ptClip);
 						//}
@@ -738,7 +738,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 									//Create a new point
 									var pp = new PolygonPoint(contour[i].X, contour[i].Y);
 									
-									//Add the point to the polygon
+									//Enqueue the point to the polygon
 									polypoints.Add(pp);
 									
 									var p = new Int3((int)contour[i].X,0,(int)contour[i].Y);
@@ -758,7 +758,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 									//Prepare a lookup table for pp -> vertex index
 									point2Index[pp] = outverts.Count;
 									
-									//Add to resulting vertex list
+									//Enqueue to resulting vertex list
 									outverts.Add (p);
 								}
 								
@@ -819,7 +819,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 								Debug.DrawLine ((Vector3)outverts[point2Index[t.Points._2]]+Vector3.up*0.1f,(Vector3)outverts[point2Index[t.Points._0]]+Vector3.up*0.1f,Color.blue);
 		#endif
 								
-								//Add the triangle with the correct indices (using the previously built lookup table)
+								//Enqueue the triangle with the correct indices (using the previously built lookup table)
 								outtris.Add (point2Index[t.Points._0]);
 								outtris.Add (point2Index[t.Points._1]);
 								outtris.Add (point2Index[t.Points._2]);
@@ -1211,7 +1211,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities {
 			activeTileRotations[index] = rotation;
 			activeTileTypes[index] = tile;
 			
-			//Add a work item
+			//Enqueue a work item
 			//This will pause pathfinding as soon as possible
 			//and call the delegate when it is safe to update graphs
 			AstarPath.active.AddWorkItem (new AstarPath.AstarWorkItem (delegate (bool force) {

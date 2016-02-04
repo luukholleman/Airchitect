@@ -17,7 +17,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 	public class FunnelModifier : MonoModifier {
 		
 	#if UNITY_EDITOR
-		[UnityEditor.MenuItem ("CONTEXT/Seeker/Add Funnel Modifier")]
+		[UnityEditor.MenuItem ("CONTEXT/Seeker/Enqueue Funnel Modifier")]
 		public static void AddComp (UnityEditor.MenuCommand command) {
 			(command.context as Component).gameObject.AddComponent (typeof(FunnelModifier));
 		}
@@ -47,7 +47,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 			
 			AstarProfiler.StartProfile ("Construct Funnel");
 			
-			// Add start point
+			// Enqueue start point
 			left.Add (vectorPath[0]);
 			right.Add (vectorPath[0]);
 			
@@ -66,7 +66,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 				}
 			}
 			
-			// Add end point
+			// Enqueue end point
 			left.Add (vectorPath[vectorPath.Count-1]);
 			right.Add (vectorPath[vectorPath.Count-1]);
 			
@@ -238,7 +238,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 		
 		void BuildFunnelCorridor (List<GraphNode> path, int sIndex, int eIndex, List<Vector3> left, List<Vector3> right);
 		
-		/** Add the portal between node \a n1 and \a n2 to the funnel corridor. The left and right edges does not necesarily need to be the left and right edges (right can be left), they will be swapped if that is detected. But that works only as long as the edges do not switch between left and right in the middle of the path.
+		/** Enqueue the portal between node \a n1 and \a n2 to the funnel corridor. The left and right edges does not necesarily need to be the left and right edges (right can be left), they will be swapped if that is detected. But that works only as long as the edges do not switch between left and right in the middle of the path.
 		  */
 		void AddPortal (GraphNode n1, GraphNode n2, List<Vector3> left, List<Vector3> right);
 	}

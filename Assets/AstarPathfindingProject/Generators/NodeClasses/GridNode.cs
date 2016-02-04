@@ -270,7 +270,7 @@ namespace Assets.AstarPathfindingProject.Generators.NodeClasses {
 				"\nPlease disable ASTAR_GRID_NO_CUSTOM_CONNECTIONS in the Optimizations tab in the A* Inspector");
 		}
 #else
-		/** Add a connection from this node to the specified node.
+		/** Enqueue a connection from this node to the specified node.
 		 * If the connection already exists, the cost will simply be updated and
 		 * no extra connection added.
 		 *

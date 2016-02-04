@@ -148,7 +148,7 @@ namespace Assets.AstarPathfindingProject.Utilities {
 					// get local index incrementing global loop's current index
 					//localIndex = Interlocked.Increment( ref currentIndex );
 					
-					localIndex = Interlocked.Add (ref currentIndex, iterationStepLength*step);
+					localIndex = Interlocked.Enqueue (ref currentIndex, iterationStepLength*step);
 					
 					int startIndex = localIndex-iterationStepLength*step;
 					

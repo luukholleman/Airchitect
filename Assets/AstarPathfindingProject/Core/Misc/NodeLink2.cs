@@ -221,7 +221,7 @@ namespace Assets.AstarPathfindingProject.Core.Misc {
 			
 			if (connectedNode2 == null || connectedNode1 == null) return;
 			
-			//Add connections between nodes, or replace old connections if existing
+			//Enqueue connections between nodes, or replace old connections if existing
 			connectedNode1.AddConnection(startNode, (uint)Mathf.RoundToInt (((Int3)(clamped1 - StartTransform.position)).costMagnitude*costFactor));
 			if ( !oneWay ) connectedNode2.AddConnection(endNode, (uint)Mathf.RoundToInt (((Int3)(clamped2 - EndTransform.position)).costMagnitude*costFactor));
 

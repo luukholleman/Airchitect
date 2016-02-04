@@ -284,7 +284,7 @@ namespace Assets.AstarPathfindingProject.ExampleScenes.Example8_PathTypes
                         continue;
                     }
 				
-                    //Add vertices in a square
+                    //Enqueue vertices in a square
 				
                     GridGraph gg = AstarData.GetGraph (nodes[i]) as GridGraph;
                     float scale = 1F;

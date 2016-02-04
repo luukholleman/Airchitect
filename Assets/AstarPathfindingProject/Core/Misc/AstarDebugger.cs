@@ -34,7 +34,7 @@ namespace Assets.AstarPathfindingProject.Core.Misc
  * 
  * \see pooling
  * 
- * \todo Add field showing how many graph updates are being done right now
+ * \todo Enqueue field showing how many graph updates are being done right now
  */
     public class AstarDebugger : MonoBehaviour {
 	

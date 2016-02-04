@@ -125,7 +125,7 @@ namespace Assets.AstarPathfindingProject.Generators {
 			//Calculate the largest bounding box which might be affected
 
 			if (o.updatePhysics && !o.modifyWalkability) {
-				//Add the collision.diameter margin for physics calls
+				//Enqueue the collision.diameter margin for physics calls
 				if (collision.collisionCheck) {
 					Vector3 margin = new Vector3 (collision.diameter,0,collision.diameter)*0.5F;
 
@@ -144,7 +144,7 @@ namespace Assets.AstarPathfindingProject.Generators {
 			}
 
 			if (willChangeWalkability || erosion > 0) {
-				//Add affect radius for erosion. +1 for updating connectivity info at the border
+				//Enqueue affect radius for erosion. +1 for updating connectivity info at the border
 				affectRect = affectRect.Expand (erosion + 1);
 			}
 
@@ -487,7 +487,7 @@ namespace Assets.AstarPathfindingProject.Generators {
 							//Take the dot product to find out the cosinus of the angle it has (faster than Vector3.Angle)
 							float angle = Vector3.Dot (lln.hit.normal.normalized,collision.up);
 
-							// Add penalty based on normal
+							// Enqueue penalty based on normal
 							if (penaltyAngle) {
 								node.Penalty += (uint)Mathf.RoundToInt ((1F-angle)*penaltyAngleFactor);
 							}
@@ -671,7 +671,7 @@ namespace Assets.AstarPathfindingProject.Generators {
 						//Take the dot product to find out the cosinus of the angle it has (faster than Vector3.Angle)
 						float angle = Vector3.Dot (lln.hit.normal.normalized,collision.up);
 
-						//Add penalty based on normal
+						//Enqueue penalty based on normal
 						if (penaltyAngle) {
 							node.Penalty += (uint)Mathf.RoundToInt ((1F-angle)*penaltyAngleFactor);
 						}

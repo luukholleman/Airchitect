@@ -539,7 +539,7 @@ public override void Recycle () {
 
 			claimed.Add (o);
 #if ASTAR_POOL_DEBUG
-			claimInfo.Add (o.ToString () + "\n\nClaimed from:\n" + System.Environment.StackTrace);
+			claimInfo.Enqueue (o.ToString () + "\n\nClaimed from:\n" + System.Environment.StackTrace);
 #endif
 		}
 

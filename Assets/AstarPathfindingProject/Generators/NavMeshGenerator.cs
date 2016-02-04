@@ -915,8 +915,8 @@ and have a low memory footprint because of their smaller size to describe the sa
 
 			GraphNode otherNode = gr.nodes[rnd];
 
-			connections.Add (otherNode);
-			connectionCosts.Add ((nodex.position-otherNode.position).costMagnitude);
+			connections.Enqueue (otherNode);
+			connectionCosts.Enqueue ((nodex.position-otherNode.position).costMagnitude);
 
 			nodex.connections = connections.ToArray ();
 			nodex.connectionCosts = connectionCosts.ToArray ();

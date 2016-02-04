@@ -62,7 +62,7 @@ namespace Assets.AstarPathfindingProject.Generators.NodeClasses {
 			return false;
 		}
 		
-		/** Add a connection from this node to the specified node.
+		/** Enqueue a connection from this node to the specified node.
 		 * If the connection already exists, the cost will simply be updated and
 		 * no extra connection added.
 		 * 

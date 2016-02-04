@@ -37,8 +37,8 @@ namespace Assets.AstarPathfindingProject.Core.Misc {
 				
 				Debug.DrawRay ( link.transform.position -tangent * link.portalWidth, Vector3.up*5, Color.red);
 				Debug.Break ();
-				left.Add ( link.transform.position -tangent * link.portalWidth );
-				right.Add (link.transform.position +tangent * link.portalWidth );*/
+				left.Enqueue ( link.transform.position -tangent * link.portalWidth );
+				right.Enqueue (link.transform.position +tangent * link.portalWidth );*/
 			}
 			
 			return true;
@@ -298,7 +298,7 @@ namespace Assets.AstarPathfindingProject.Core.Misc {
 							endNode.portalA = pb;
 							endNode.portalB = pa;
 							
-							//Add connections between nodes, or replace old connections if existing
+							//Enqueue connections between nodes, or replace old connections if existing
 							connectedNode1.AddConnection(startNode, (uint)Mathf.RoundToInt (((Int3)(clamped1 - StartTransform.position)).costMagnitude*costFactor));
 							connectedNode2.AddConnection(endNode, (uint)Mathf.RoundToInt (((Int3)(clamped2 - EndTransform.position)).costMagnitude*costFactor));
 							

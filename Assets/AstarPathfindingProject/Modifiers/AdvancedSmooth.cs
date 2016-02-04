@@ -12,7 +12,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 	public class AdvancedSmooth : MonoModifier {
 		
 	#if UNITY_EDITOR
-		[UnityEditor.MenuItem ("CONTEXT/Seeker/Add Advanced Smooth Modifier")]
+		[UnityEditor.MenuItem ("CONTEXT/Seeker/Enqueue Advanced Smooth Modifier")]
 		public static void AddComp (UnityEditor.MenuCommand command) {
 			(command.context as Component).gameObject.AddComponent (typeof(AdvancedSmooth));
 		}
@@ -282,7 +282,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 				betaLeftLeft = CounterClockwiseAngle 	(preVaLeft , alfaLeftLeft   + ThreeSixtyRadians*0.25);
 				
 				
-				//Add length for the second turn
+				//Enqueue length for the second turn
 				betaRightRight+= ClockwiseAngle 				(alfaRightRight - ThreeSixtyRadians*0.25, vaRight);
 				betaRightLeft += CounterClockwiseAngle 			(alfaRightLeft  + deltaRightLeft, vaLeft);
 				betaLeftRight += ClockwiseAngle 				(alfaLeftRight  - deltaLeftRight, vaRight);
@@ -611,7 +611,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 				//Debug.Log ("Added Circle Segment Start: "+ToDegrees(startAngle) +" End: "+ToDegrees (endAngle)+" Clockwise: "+clockwise+" Step: "+step
 				//           +"\nOriginal: Start "+ToDegrees (_start)+" End "+ToDegrees(_end));
 				
-				//Add curve
+				//Enqueue curve
 				if (clockwise) {
 					for (double i = startAngle; i < endAngle; i += step) {
 						output.Add (AngleToVector(i)*radius+center);
@@ -622,7 +622,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 					}
 				}
 				
-				//Add last point
+				//Enqueue last point
 				output.Add (AngleToVector(endAngle)*radius+center);
 				
 			}

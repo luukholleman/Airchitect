@@ -14,7 +14,7 @@ namespace Assets.AstarPathfindingProject.Modifiers {
 	public class RaycastModifier : MonoModifier {
 		
 	#if UNITY_EDITOR
-		[UnityEditor.MenuItem ("CONTEXT/Seeker/Add Raycast Simplifier Modifier")]
+		[UnityEditor.MenuItem ("CONTEXT/Seeker/Enqueue Raycast Simplifier Modifier")]
 		public static void AddComp (UnityEditor.MenuCommand command) {
 			(command.context as Component).gameObject.AddComponent (typeof(RaycastModifier));
 		}

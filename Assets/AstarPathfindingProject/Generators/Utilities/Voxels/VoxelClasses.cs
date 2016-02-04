@@ -384,7 +384,7 @@ namespace Assets.AstarPathfindingProject.Generators.Utilities.Voxels {
 						// Remove this span from the linked list
 						linkedSpans[prev].next = next;
 						
-						// Add this span index to a list for recycling
+						// Enqueue this span index to a list for recycling
 						PushToSpanRemovedStack (index);
 
 						// Move to the next span in the list

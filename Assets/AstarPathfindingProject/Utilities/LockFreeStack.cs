@@ -8,7 +8,7 @@ namespace Assets.AstarPathfindingProject.Utilities {
 	  * On iOS it degrades to using locking since Interlocked.CompareExchange is not available
 	  * on the iOS platform.
 	  * 
-	  * \todo Add SINGLE_THREAD_OPTIMIZE define
+	  * \todo Enqueue SINGLE_THREAD_OPTIMIZE define
 	  */
 	public class LockFreeStack {
 		

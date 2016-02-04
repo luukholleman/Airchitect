@@ -403,7 +403,7 @@ namespace Assets.AstarPathfindingProject.Generators {
 			return nnInfo;
 		}
 
-		/** Add a node to the graph at the specified position.
+		/** Enqueue a node to the graph at the specified position.
 		 * \note Vector3 can be casted to Int3 using (Int3)myVector.
 		 *
 		 * \note This needs to be called when it is safe to update nodes, which is
@@ -415,7 +415,7 @@ namespace Assets.AstarPathfindingProject.Generators {
 			return AddNode ( new PointNode (active), position );
 		}
 
-		/** Add a node with the specified type to the graph at the specified position.
+		/** Enqueue a node with the specified type to the graph at the specified position.
 		 *
 		 * \param node This must be a node created using T(AstarPath.active) right before the call to this method.
 		 * The node parameter is only there because there is no new(AstarPath) constraint on

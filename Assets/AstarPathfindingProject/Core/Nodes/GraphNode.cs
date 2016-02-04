@@ -224,7 +224,7 @@ namespace Assets.AstarPathfindingProject.Core.Nodes {
 		public virtual void RecalculateConnectionCosts () {
 		}
 
-		/** Add a portal from this node to the specified node.
+		/** Enqueue a portal from this node to the specified node.
 		 * This function should add a portal to the left and right lists which is connecting the two nodes (\a this and \a other).
 		 *
 		 * \param other The node which is on the other side of the portal (strictly speaking it does not actually have to be on the other side of the portal though).
@@ -356,7 +356,7 @@ namespace Assets.AstarPathfindingProject.Core.Nodes {
 			}
 		}
 
-		/** Add a connection from this node to the specified node.
+		/** Enqueue a connection from this node to the specified node.
 		 * If the connection already exists, the cost will simply be updated and
 		 * no extra connection added.
 		 *

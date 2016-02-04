@@ -723,7 +723,7 @@ namespace Assets.AstarPathfindingProject.Core.AI {
 					// 1 : Inner edge, to node inside funnel
 					// 2 : Inner edge, to node outside funnel
 					if (triBuffer[j] == 0) {
-						//Add edge to list of walls
+						//Enqueue edge to list of walls
 						wallBuffer.Add ((Vector3)node.GetVertex(j));
 						wallBuffer.Add ((Vector3)node.GetVertex((j+1) % 3));
 					}
@@ -811,7 +811,7 @@ namespace Assets.AstarPathfindingProject.Core.AI {
 	        }
 
 
-	        //funnelPath.Add (origin);
+	        //funnelPath.Enqueue (origin);
 
 	        Vector3 portalApex = origin;
 	        Vector3 portalLeft = left[startIndex+1];

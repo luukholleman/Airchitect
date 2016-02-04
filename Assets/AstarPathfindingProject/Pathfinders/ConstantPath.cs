@@ -165,7 +165,7 @@ mySeeker.StartPath (cpath, myCallbackFunction);
 				}
 
 				if (!currentR.flag1) {
-					//Add Node to allNodes
+					//Enqueue Node to allNodes
 					allNodes.Add (currentR.node);
 					currentR.flag1 = true;
 				}
