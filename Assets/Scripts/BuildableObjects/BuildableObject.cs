@@ -30,7 +30,7 @@ namespace Assets.Scripts.BuildableObjects
         void OnDrawGizmosSelected()
         {
             Gizmos.color = new Color(1, 0, 0, 0.5F);
-            Gizmos.DrawWireCube(BoundingBox.center, BoundingBox.size);
+			Gizmos.DrawWireCube(transform.position + BoundingBox.center, BoundingBox.size);
         }
     }
 }

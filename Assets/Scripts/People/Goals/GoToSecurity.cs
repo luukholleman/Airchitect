@@ -10,6 +10,7 @@ namespace Assets.Scripts.People.Goals
         public override void Activate()
         {
             _security = GameObject.Find("Security").transform;
+
             Person.GetComponent<AIPath>().target = _security;
         }
 

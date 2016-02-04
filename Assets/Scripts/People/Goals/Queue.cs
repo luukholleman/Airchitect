@@ -17,19 +17,19 @@ namespace Assets.Scripts.People.Goals
             foreach (Queuable queue in queues)
             {
                 _queue = queue;
+//
+//                Guest lastInQueue = _queue.LastInQueue;
 
-                Guest lastInQueue = _queue.LastInQueue;
-
-                if (lastInQueue != null)
-                {
-                    Person.GetComponent<AIPath>().target = _queue.LastInQueue.transform;
-                }
-                else
-                {
+//                if (lastInQueue != null)
+//                {
+//                    Person.GetComponent<AIPath>().target = _queue.LastInQueue.transform;
+//                }
+//                else
+//                {
                     Person.GetComponent<AIPath>().target = _queue.transform.FindChild("Target").transform;
-                }
+//                }
 
-                _queue.Enqueue(Person);
+//                _queue.Enqueue(Person);
 
                 break;
             }
@@ -37,18 +37,21 @@ namespace Assets.Scripts.People.Goals
 
         public override STATUS Process()
         {
+			
+//            if (_queue.FrontInQueue == Person)
+//			{
+				if (Vector3.Distance(_queue.transform.position, Person.transform.position) < 2f)
+				{
+//					_queue.Dequeue ();
 
-            if (Vector3.Distance(_queue.transform.position, Person.transform.position) < 2.5f)
-            {
-                return SetStatus(STATUS.Completed);
-            }
-            if (_queue.FrontInQueue == Person)
-            {
-                Person.GetComponent<AIPath>().target = _queue.transform;
-
-                return SetStatus(STATUS.Active);
-            }
-            
+					return SetStatus(STATUS.Completed);
+				}
+//
+//                Person.GetComponent<AIPath>().target = _queue.transform;
+//
+//                return SetStatus(STATUS.Active);
+//            }
+//            
             return SetStatus(STATUS.Active);
         }
 
